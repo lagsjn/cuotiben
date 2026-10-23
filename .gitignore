@@ -1,0 +1,20 @@
+# 依赖与构建产物
+node_modules/
+dist/
+target/
+
+# 上传的题目图片
+uploads/
+
+# 本地截图与调试产物
+.shots/
+
+# 编辑器 / 系统
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log

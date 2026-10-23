@@ -1,0 +1,40 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: cuotiben-backend
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cuotiben?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:123456}
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    banner: false
+    db-config:
+      id-type: auto
+
+# 项目自定义配置
+cuotiben:
+  # 题目图片保存目录（数据库只存相对路径）
+  upload-dir: ./uploads
+  # 允许跨域的前端地址
+  cors-origins: http://localhost:5175,http://localhost:5173
+  # 登录令牌有效期（小时），骨架阶段使用简单 UUID + 内存缓存，后续可换 JWT/Redis
+  token-expire-hours: 72
+
+logging:
+  level:
+    com.cuotiben: debug
