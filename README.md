@@ -126,6 +126,7 @@ curl http://localhost:8080/api/health
 - **图片存储**：本地目录 `backend/uploads`（`cuotiben.upload-dir` 可改），数据库只存 `/uploads/xxx.png` 相对路径，通过静态资源映射访问。
 - **统计数据**：首页与统计的聚合目前用「按条件分别 count」，数据量大时建议改为一条 `GROUP BY` SQL。
 - **上传目录与构建产物**不要提交到仓库，已在 `.gitignore` 中忽略。
+- **数据库密码**：`application.yml` 里的 `123456` 只是本地开发默认值（`${MYSQL_PASSWORD:123456}`），实际部署请用环境变量覆盖，不要把真实密码写进配置文件。
 
 ---
 
